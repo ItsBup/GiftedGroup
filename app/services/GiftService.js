@@ -1,10 +1,10 @@
 import { api } from "./AxiosService.js";
-
+import { Gift } from "../models/Gift.js";
 
 class GiftService {
   async getGiftApi(){
     const response = await api.get('api/gifts')
-    console.log(response)
+    response.data.map(gift => new Gift)
   }
 }
 
