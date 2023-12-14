@@ -1,7 +1,9 @@
+import { api } from "./AxiosService.js";
+
 
 class GiftService {
   async getGiftApi(){
-    const response = api.get('api/gifs')
+    const response = await api.get('api/gifts')
     console.log(response)
   }
 }
