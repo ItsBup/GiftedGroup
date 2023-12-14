@@ -1,10 +1,12 @@
 import { api } from "./AxiosService.js";
 import { Gift } from "../models/Gift.js";
+import { AppState } from "../AppState.js";
 
 class GiftService {
   async getGiftApi(){
     const response = await api.get('api/gifts')
-    response.data.map(gift => new Gift)
+    AppState.gifts = response.data.map(gift => new Gift(gift))
+    console.log(';-;', AppState.gifts)
   }
 }
 
