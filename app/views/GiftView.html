@@ -1,3 +1,25 @@
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Make Gift</button>
+
+<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasTopLabel"> Gift Maker</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <form onsubmit="app.GiftController.createGift()">
+    <div class="input-group">
+      <label for="tag">Name of Gift</label>
+      <input type="text" id="tag" name="tag"/>
+      <label for="url">Img Url</label>
+      <input type="text" id="url" name="url"/>
+    </div>
+    <button class="btn btn-success">Submit</button>
+    
+    
+    </form>
+  </div>
+</div>
+
 <div class="container-fluid bg-dark text-light">
   <div class="row py-3">
     <div class="col-lg-12">

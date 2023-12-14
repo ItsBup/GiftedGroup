@@ -12,7 +12,7 @@ export class Gift {
   get  GiftTemplateList(){
     return `<div role="button" onclick="app.GiftController.openGift('${this.id}')" class="col-2 m-2 p-1 border border-light rounded">
     <img class="img-fluid rounded" src="${this.url}">
-  
+    <h1>${this.tag}</h1>
     </div>
     `
   }

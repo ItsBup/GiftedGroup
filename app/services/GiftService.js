@@ -10,12 +10,23 @@ class GiftService {
   }
 
   async openGift(id){
-    const openedGift = AppState.gifts.find(gift => gift.id == id)
+    let openedGift = AppState.gifts.find(gift => gift.id == id)
     openedGift.opened = true
-    const response = await api.put(`api/gifts/${this.id}`, openedGift)
-    console.log(response)
-    AppState.emit('gifts')
     console.log(openedGift)
+    const response = await api.put(`api/gifts/${id}`, openedGift)
+    console.log(response.data)
+    const index = AppState.gifts.findIndex(gift => gift.id == id)
+    const newGift = new Gift(response.data)
+    console.log(index, newGift)
+    AppState.gifts.splice(index, 1, newGift)
+    // AppState.emit('gifts')
+  }
+  async createGift(formData){
+    let newGift = new Gift(formData)
+    const response = await api.post('api/gifts', newGift)
+    console.log('the new gift', formData)
+    AppState.gifts.push(response.data)
+
   }
 }
 
